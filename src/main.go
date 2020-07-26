@@ -74,9 +74,42 @@ func testF64(key float64) {
 	fmt.Printf("f64,%.0f,%f,%f\n", key, minMs, result)
 }
 
+func nonsenseF32(s0 float32) float32 {
+	r := float32(0.0)
+	m := float32(0.0)
+	for i := float32(1.0); i < 32.0; i++ {
+		m += 7
+		if i < s0 {
+			s := nonsenseF32(s0 - i)
+			r += m / (s*s + 1)
+		}
+	}
+	return r
+}
+
+func testOneF32(key float32) (float32, float32) {
+	start := time.Now()
+	result := nonsenseF32(key)
+	end := time.Now()
+	ms := float32(end.Sub(start)/time.Nanosecond) * 1e-6
+	return ms, result
+}
+
+func testF32(key float32) {
+	minMs := 1e100
+	result := float32(0.0)
+	for i := 0; i < 5; i++ {
+		ms, r := testOneF32(key)
+		result = r
+		minMs = math.Min(minMs, float64(ms))
+	}
+	fmt.Printf("f32,%.0f,%f,%f\n", key, minMs, result)
+}
+
 func test(key uint64) {
 	testU64(key)
 	testF64(float64(key))
+	testF32(float32(key))
 }
 
 func main() {
