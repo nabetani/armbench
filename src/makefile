@@ -1,4 +1,4 @@
-LEN=25
+LEN=20
 
 GOVER:=$(shell go version | grep -Eo 'go[0-9\.]+')
 ARM64:=arm64-${GOVER}
@@ -27,10 +27,10 @@ ${ARM64}.csv : ${ARM64}
 endif
 
 ${ARM7} : main.go
-	go build -o ${ARM7}
+	GOOS=linux GOARCH=arm GOARM=7 go build -o ${ARM7}
 
 ${ARM64} : main.go
-	go build -o ${ARM64}
+	GOOS=linux GOARCH=arm64 go build -o ${ARM64}
 
 clean:
 	rm -f arm7*.*
