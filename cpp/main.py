@@ -35,7 +35,7 @@ def graph(c, vals):
 
 
 def main():
-    keys = ["arm64", "arm64clang", "v7", "v7a-neon", "v8"]
+    keys = reversed(["v7", "v7a-neon2", "v8", "arm64", "arm64clang"])
     values = [[k, read_csv(k)] for k in keys]
     print(values[0][1])
     conds = ["uint8", "uint16", "uint32", "uint64", "float", "double"]
