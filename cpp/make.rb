@@ -1,12 +1,12 @@
 S={
-  "v7" => "arm-linux-gnueabihf-g++ -static -march=armv7+fp",
-  "v7a-neon" => "arm-linux-gnueabihf-g++ -static -march=armv7-a+neon",
-  "v8" => "arm-linux-gnueabihf-g++ -static -march=armv8.1-a+simd",
-  "arm64" => "g++ -static -march=armv8.1-a+simd",
-  "arm64clang" => "clang++ -static -march=armv8.1-a+simd",
+  "v7" => "arm-linux-gnueabihf-g++ -march=armv7+fp",
+  "v7a-neon2" => "arm-linux-gnueabihf-g++ -march=armv7-a+neon-vfpv4",
+  "v8" => "arm-linux-gnueabihf-g++ -march=armv8.1-a+simd",
+  "arm64" => "g++ -march=armv8.1-a+simd",
+  "arm64clang" => "clang++ -march=armv8.1-a+simd",
 }
 
-OPTS = "-std=c++17 -O2 -Ofast -s "
+OPTS = "-std=c++17 -O2 -Ofast -s -static"
 
 File.open( "makefile", "w" ) do |f|
   f.puts( <<~"MAKEFILE" )
