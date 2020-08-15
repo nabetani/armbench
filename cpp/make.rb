@@ -1,9 +1,9 @@
 S={
   "v7" => "arm-linux-gnueabihf-g++ -march=armv7+fp",
   "v7a-neon2" => "arm-linux-gnueabihf-g++ -march=armv7-a+neon-vfpv4",
-  "v8" => "arm-linux-gnueabihf-g++ -march=armv8.1-a+simd",
-  "arm64" => "g++ -march=armv8.1-a+simd",
-  "arm64clang" => "clang++ -march=armv8.1-a+simd",
+  "v8" => "arm-linux-gnueabihf-g++ -march=armv8-a+simd",
+  "arm64" => "g++ -march=armv8-a+simd",
+  "arm64clang" => "clang++ -march=armv8-a+simd",
 }
 
 OPTS = "-std=c++17 -O2 -Ofast -s -static"
