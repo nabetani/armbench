@@ -1,0 +1,6 @@
+/.vscode
+/target
+**/*.rs.bk
+/cpp/makefile
+/cpp/run.sh
+/cpp/bin
