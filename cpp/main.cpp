@@ -11,7 +11,7 @@ using namespace std;
 
 using stdclock = chrono::high_resolution_clock;
 
-constexpr int SAMPLE_COUNT = 51;
+constexpr int SAMPLE_COUNT = 31;
 
 template <typename u> //
 void uint_bench_core(u seed, char const *name) {
