@@ -17,7 +17,7 @@ def read_csv(k):
 
 def graph(c, vals):
     pdf = PdfPages(c+'.pdf')
-    plt.figure()
+    plt.figure(figsize=(8, 2))
     plt.title(c)
 
     v = [[v[0], statistics.median(
