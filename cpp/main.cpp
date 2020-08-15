@@ -38,10 +38,10 @@ void uint_bench_core(u seed, char const *name) {
             u(s.m0 * s.m1 - s.m2)};
   };
   auto m3 = [](u4 const &a, u4 const &b, u4 const &c) -> u4 {
-    return {u(a.m1 ^ b.m2 ^ c.m3), //
-            u(a.m2 ^ b.m3 ^ c.m0), //
-            u(a.m3 ^ b.m0 ^ c.m1), //
-            u(a.m0 ^ b.m1 ^ c.m2)};
+    return {u(a.m1 / u(1u | b.m2)), //
+            u(a.m2 / u(1u | b.m3)), //
+            u(a.m3 / u(1u | b.m0)), //
+            u(a.m0 / u(1u | b.m1))};
   };
   u4 v = {u(seed + 1), u(seed + 2), u(seed + 3), u(seed + 4)};
   atomic<stdclock::time_point> t0 = stdclock::now();
