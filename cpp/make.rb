@@ -6,7 +6,7 @@ S={
   "arm64clang" => "clang++ -march=armv8-a+simd",
 }
 
-OPTS = "-std=c++17 -O2 -Ofast -s -static"
+OPTS = "-std=c++17 -O2 -s -static"
 
 File.open( "makefile", "w" ) do |f|
   f.puts( <<~"MAKEFILE" )
